@@ -109,9 +109,16 @@
 \definecolor{orange}{HTML}{FDA333}
 \definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB4485}
-\definecolor{blue}{HTML}{6CE0F1}
+%\definecolor{blue}{HTML}{387da7}
+\definecolor{blue}{HTML}{4682B4}
+%\definecolor{blue}{HTML}{0059B2}
+\definecolor{lightblue}{HTML}{0072E5}
+\definecolor{iconblue}{HTML}{0059B2}
+\definecolor{bronze}{HTML}{eab676}
+\definecolor{silver}{HTML}{e5e4e2}
 % Text colors
 \definecolor{darktext}{HTML}{414141}
+\definecolor{teal}{HTML}{429E9D}
 \colorlet{text}{darkgray}
 \colorlet{graytext}{gray}
 % Awesome colors
@@ -236,6 +243,7 @@
 
 % variables for name, tag line and photo setup
 \newcommand{\name}[1]{\def\@name{#1}}
+\newcommand{\position}[1]{\def\@position{#1}}
 \newcommand{\tagline}[1]{\def\@tagline{#1}}
 \newcommand{\photo}[3][]{\def\@photo{#2}\def\@photodiameter{#3}\def\@photoformat{#1}}
 
@@ -264,8 +272,13 @@
                 {\Huge\bfseries\color{headerfontcolor}\MakeUppercase{\@name}\par}
             \end{minipage}%
             \vfill%
-            \begin{minipage}[b][\dimexpr \headerheight-2em-\marginbottom]{\linewidth}%
-                {\large\bfseries\color{headerfontcolor}\@tagline\par}
+            % print the position text
+			\begin{minipage}[b][\dimexpr \headerheight-11em-\marginbottom]{\linewidth}%
+				{\LARGE\bfseries\color{positionfontcolor}\@position\par}
+			\end{minipage}%
+			\vfill%
+            \begin{minipage}[b][\dimexpr \headerheight-4em-\marginbottom]{\linewidth}%
+                {\large\bfseries\color{summaryfontcolor}\@tagline\par}
             \end{minipage}%
         % finish the minipages for text and photo if photo is given
         \ifdef{\@photodiameter}{%
@@ -393,28 +406,29 @@
 \setlength{\jobdateplacelength}{0.4\linewidth}
 \setlength{\jobpositionlength}{0.6\linewidth}
 \newcommand{\job}[4]{%
+	{\large \bfseries \color{jobtitle} #3}
+	
+	\vspace{0.1em}
     \begin{minipage}[t]{\jobdateplacelength}% minipage for left column with date/place
         \footnotesize
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line dates
-            \makebox[3mm][c]{\faCalendar}
+            \makebox[3mm][c]{\color{iconblue}{\faCalendar}}
         \end{minipage}%
         \hspace{0.5em}%
-        \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap date in minipage to allow multi-line dates
+        \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em \color{jobdatefontcolor}}% wrap date in minipage to allow multi-line dates
             #1
         \end{minipage}%
         \par
         \vspace{0.1em}
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line places
-            \makebox[3mm][c]{\faMapMarker}
+            \makebox[3mm][c]{\color{iconblue}{\faMapMarker}}
         \end{minipage}%
         \hspace{0.5em}%
-        \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap place in minipage to allow multi-line places
+        \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em \color{jobdatefontcolor}}% wrap place in minipage to allow multi-line places
             #2
         \end{minipage}%
     \end{minipage}%
-    \begin{minipage}[t]{\jobpositionlength}% minipage for position
-        {\large \color{emphasis} #3}
-    \end{minipage}%
+	\vspace{1em}
     \ifstrequal{#4}{}{}{\par \vspace{0.1em} \footnotesize #4}
     \par\normalsize
     \vspace{0.5em}
@@ -425,10 +439,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\skill}[2]{%
-    \textcolor{emphasis}{\textbf{#1}}\hfill
+    \textcolor{emphasis}{#1}\hfill
     \foreach \x in {1,...,5}{%
-      \space{\ifnumgreater{\x}{#2}{\color{gray}}{\color{accent}}\faCircle}}\par%
+      \space{\ifnumgreater{\x}{#2}{\color{lightgray}}{\color{accent}}\faCircle}}\par%
+  	\vspace{0.5em}
 }
+
 
 % skill without any charts
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -441,7 +457,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\skillsection}[1]{%
-    \textit{\color{accent}#1}\par
+    \textbf{\color{skillsectioncolor}#1}\par
+    \vspace{0.5em}
 }
 
 % tag (framed word or phrase)
@@ -449,7 +466,7 @@
 
 % adapted from AltaCV: https://github.com/liantze/AltaCV
 \newcommand{\tag}[1]{%
-  \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
+  \tikz[baseline]\node[anchor=base,draw=body!30, fill=blue!50, rounded corners,inner xsep=1ex,inner ysep =1ex,text height=1.5ex,text depth=.25ex]{\color{white}{#1}};
 }
 
 % wheel chart
@@ -597,6 +614,29 @@
     \vspace{0.5em}
 }
 
+\newcommand{\educationrole}[1]{%
+	\begin{minipage}[t]{1mm}%
+		\makebox[1mm][c]{\footnotesize \faDiamond}
+	\end{minipage}%
+	\hspace{1em}%
+	\begin{minipage}[t]{\dimexpr \textwidth-1em-3mm}%
+		{\normalsize #1\par}
+	\end{minipage}%
+	\par
+	\vspace{1em}
+}
+
+\newcommand{\jobrole}[1]{%
+	\begin{minipage}[t]{1mm}%
+		\makebox[1mm][c]{\footnotesize \faAsterisk}
+	\end{minipage}%
+	\hspace{1em}%
+	\begin{minipage}[t]{\dimexpr \textwidth-1em-3mm}%
+		{\normalsize #1\par}
+	\end{minipage}%
+	\par
+	\vspace{1em}
+}
 % lists
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
