@@ -211,7 +211,8 @@
   background,
   topmargin,
   addheight=\headerheight,
-  contents={\color{headerbarcolor}\rule{\layerwidth}{\layerheight}}
+  contents={\color{black}\rule{\layerwidth}{3.5cm}\vspace{-\baselineskip}
+  \color{headerbarcolor}\rule{\layerwidth}{4.5cm}}
 ]{header.bg}
 
 % % add the layers to page style plain
@@ -273,7 +274,7 @@
             \end{minipage}%
             \vfill%
             % print the position text
-			\begin{minipage}[b][\dimexpr \headerheight-11em-\marginbottom]{\linewidth}%
+			\begin{minipage}[b][\dimexpr \headerheight-14em-\marginbottom]{\linewidth}%
 				{\LARGE\bfseries\color{positionfontcolor}\@position\par}
 			\end{minipage}%
 			\vfill%
@@ -406,11 +407,13 @@
 \setlength{\jobdateplacelength}{0.4\linewidth}
 \setlength{\jobpositionlength}{0.6\linewidth}
 \newcommand{\job}[4]{%
-	{\large \bfseries \color{jobtitle} #3}
+	\ifstrequal{#3}{}{}{
+	{\large \bfseries \color{jobtitle} #3}}
 	
 	\vspace{0.1em}
     \begin{minipage}[t]{\jobdateplacelength}% minipage for left column with date/place
         \footnotesize
+        \ifstrequal{#1}{}{}{
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line dates
             \makebox[3mm][c]{\color{iconblue}{\faCalendar}}
         \end{minipage}%
@@ -420,6 +423,8 @@
         \end{minipage}%
         \par
         \vspace{0.1em}
+    }
+	\ifstrequal{#2}{}{}{
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line places
             \makebox[3mm][c]{\color{iconblue}{\faMapMarker}}
         \end{minipage}%
@@ -427,6 +432,7 @@
         \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em \color{jobdatefontcolor}}% wrap place in minipage to allow multi-line places
             #2
         \end{minipage}%
+    }
     \end{minipage}%
 	\vspace{1em}
     \ifstrequal{#4}{}{}{\par \vspace{0.1em} \footnotesize #4}
@@ -439,7 +445,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\skill}[2]{%
-    \textcolor{emphasis}{#1}\hfill
+    \textcolor{black}{#1}\hfill
     \foreach \x in {1,...,5}{%
       \space{\ifnumgreater{\x}{#2}{\color{lightgray}}{\color{accent}}\faCircle}}\par%
   	\vspace{0.5em}
@@ -466,7 +472,7 @@
 
 % adapted from AltaCV: https://github.com/liantze/AltaCV
 \newcommand{\tag}[1]{%
-  \tikz[baseline]\node[anchor=base,draw=body!30, fill=blue!50, rounded corners,inner xsep=1ex,inner ysep =1ex,text height=1.5ex,text depth=.25ex]{\color{white}{#1}};
+  \tikz[baseline]\node[anchor=base,draw=body!30, fill=blue!50, rounded corners,inner xsep=1ex,inner ysep =1ex,text height=2ex,text depth=.25ex]{\color{white}{#1}};
 }
 
 % wheel chart
@@ -628,7 +634,7 @@
 
 \newcommand{\jobrole}[1]{%
 	\begin{minipage}[t]{1mm}%
-		\makebox[1mm][c]{\footnotesize \faAsterisk}
+		\makebox[1mm][c]{\footnotesize \faMinus}
 	\end{minipage}%
 	\hspace{1em}%
 	\begin{minipage}[t]{\dimexpr \textwidth-1em-3mm}%

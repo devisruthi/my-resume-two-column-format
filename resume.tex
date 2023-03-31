@@ -4,12 +4,12 @@
                fontsize=11pt
               ]{my-resume}
 
-\usepackage{setspace}
+\usepackage[none]{hyphenat}%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % set geometry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength\highlightwidth{8cm}
-\setlength\headerheight{6cm}            % note that margintop gets added to this value, i.e. the header bar is 5cm
+\setlength\headerheight{7cm}            % note that margintop gets added to this value, i.e. the header bar is 5cm
 \setlength\marginleft{1cm}
 \setlength\marginright{\marginleft}      % needs to be 1.5 times to be actually equal. why?
 \setlength\margintop{1cm}
@@ -35,7 +35,7 @@
 \colorlet{summaryfontcolor}{silver}
 \colorlet{accent}{blue}
 \colorlet{heading}{blue}
-\colorlet{emphasis}{red!80}
+\colorlet{emphasis}{red} %red
 \colorlet{body}{blue}
 \colorlet{skillsectioncolor}{teal}
 \colorlet{jobtitle}{teal}
@@ -67,8 +67,8 @@
     \location{Melbourne, Victoria}
     \vspace{0.5em}
     %\homepage{nicokrieger.com}{https://www.nicokrieger.de}
-    %\github{@GiantMolecularCloud}{https://github.com/giantmolecularcloud}
-    \linkedin{Sruthi Devi}{https://www.linkedin.com/in/sruthi-devi/}
+    \github{github.com/devisruthi}{https://github.com/devisruthi}
+    \linkedin{linkedin.com/in/sruthi-devi/}{https://www.linkedin.com/in/sruthi-devi/}
     
     \section{Skills}
     
@@ -77,33 +77,22 @@
     \skill{Transact SQL}{5}
     \skill{C\#}{5}
     \skill{Webforms}{5}
+    \skill{HTML, CSS}{4}
     \skill{Javascript}{4}
-    \skill{Version Control}{4}
-    {\footnotesize (TFS, GIT)}\\
-    \skill{Unit Testing}{4}
-    \skill{Load Testing}{3}
-    \skill{HTML, CSS}{3}
+    \skill{Unit Testing, TDD}{4}
+    \skill{Load Testing, JMeter}{3}
     \skill{React, Material UI}{3}
     \skill{Azure}{3}
-    \skill{No SQL, MongoDB}{2}
     
     \vspace{1.5em}
     \skillsection{Software Integration}
     \skill{Web API, REST}{5}
-    \skill{API Security}{5}
-    {\footnotesize (OAuth 2.0, API Keys, SAML, \\ Basic Authentication)}\\
-    \skill{Data formatting}{5}
-    {\footnotesize (JSON, CSV, XAML)}\\
+    \skill{API Security \\{\footnotesize (OAuth 2.0, API Keys,\\Basic Authentication)}}{5}
+    \skill{Data formatting \\{\footnotesize (JSON, CSV, XAML)}}{5}
     \skill{Open API, Swagger}{4}
     \skill{SOAP, RPC}{3}
     \skill{SAP Gateways, PO}{2}
     
-    %\vspace{0.5em}
-    %\skillsection{Another skill subsection header}
-    %You can also put simply text here without the dots.
-    
-    %\section{Certificates}
-    %\simpleskill{AWS certified cloud practitioner}
 
 }
 \mainbar{
@@ -124,15 +113,16 @@
 	}
 
     
-    \section[\faGears]{Work history}
-    \job{date}
-        {Employer name and city}
-        {Position Title}
-        {Additional details for this position. Can be left empty to omit this line}
-    \job{01/2020 - 12/2020}
-        {An employer with a long name,\\City in new line}
-        {Previous position}
-        {}
+    \section[\faGears]{Professional Experience}
+    \job{10/2015 - 10/2020}
+        {Bharat Petroleum Corporation Limited}
+        {Senior Software Engineer}
+        {
+        	\jobrole{ Designed, developed and maintained enterprise-scale applications serving more than 80 million consumers in .NET platform. System handles around 1 million bookings per second on peak loads.}
+        	\jobrole{Proposed \& implemented pilot cloud-based solutions to resolve business challenges like document management with 300 docs per second upload rate, data analytics etc., accelerating the cloud journey of BPCL.}
+        	\jobrole{Led development of predictive booking and sentiment analysis of twitter feeds for boardroom display using Azure cloud with two junior developers.}
+        	\jobrole{Integrated inhouse payment system with Amazon, Paytm, etc. achieving 80 percent customer conversion.}
+    	}
     
     %\section{Achievements, honours and awards}
     %\achievement{My first achievement}
@@ -146,33 +136,80 @@
 	
 	\section{Skills}
 	
+	\vspace{1.5em}
+	\skillsection{General Skills}
+	\skill{Monolithic}{5}
+	\skill{Service oriented}{5}
+	\skill{Version Control \\{\footnotesize (TFS, GIT)}}{4}
+	\skill{Agile Development}{4}
+	\skill{Microservices}{4}
+	\skill{Event Driven Design}{3}
+	\skill{CI/CD Pipeline}{3}
+	\skill{No SQL, MongoDB}{3}
+	\skill{Docker Containers}{2}
+	
 	\vspace{0.5em}
 	\skillsection{Artificial Intelligence }
-	\skill{Python}{4}
-	\skill{Visualization}{3}
-	{\footnotesize (matplotlib, seaborn)}\\
-	\skill{Data analysis}{4}
-	{\footnotesize (numpy, scipy, pandas)}\\
 	\skill{Machine Learning}{4}
 	\skill{Deep Learning}{4}
+	\skill{Azure Applied AI \\Services}{4}
+	\skill{Azure ML Studio}{3}
+	\skill{Python}{3}
+	\skill{Visualization \\{\footnotesize (matplotlib, seaborn)}}{3}
+	\skill{Data analytics \\{\footnotesize (numpy, scipy, pandas)}}{3}
 	
 	\vspace{1.5em}
-	\skillsection{Technical Skills}
-	\skill{Microsoft .NET}{5}
-	
+	\skillsection{Soft Skills}
+	\skill{Critical Thinking}{5}
+	\skill{Problem Solving}{5}
+	\skill{Analytical Skills}{5}
+	\skill{Quick learner}{5}
+	\skill{Leadership}{4}
+	\skill{Communication}{4}
 }
 \mainbar{
 
-	\section[\faGears]{Work history}
-	\job{date}
-	{Employer name and city}
-	{Position Title}
-	{Additional details for this position. Can be left empty to omit this line}
-	\job{01/2020 - 12/2020}
-	{An employer with a long name,\\City in new line}
-	{Previous position}
-	{}
+	\section[\faGears]{Professional Experience}
+	\job{}{}{} %Continuation, no date,city or position passed
+	{
+	\jobrole{Co-ordinate with development teams to assess third-party software products and present insights for vendor selection.}
+	\jobrole{Mentoring junior engineers on domain knowledge, design patterns and code review as well as ensure project completion.}
+	\jobrole{Involved in technology projects like SQL 2016 migration, .Net 4.6 upgrades, TFS 2017 migration, and automated release management.}
+	}
+	\job{07/2013-10/2015}
+	{Bharat Petroleum Corporation Limited}
+	{Software Engineer}
+	{
+		\jobrole{Hands-on development of B2B \& B2C applications for customer enrollment, sales cycle implementation, stock reconciliation, financial settlement and MIS reports in .NET.}
+		\jobrole{Focused on service-oriented architecture, designed and Implemented interfaces, web services, and REST APIs for 15+ B2B integrations, mobile backend services, audit data provisioning etc.}
+		\jobrole{Used advanced SQL queries, partitioning, SSRS data-driven reports,
+		etc to facilitate complex data extraction for audit agencies, BI, and
+		consumption pattern analysis of transactional data of 10 million consumers.
+		}
+	}
+	\job{07/2012 - 07/2013}
+	{Bharat Petroleum Corporation Limited}
+	{Junior Software Engineer}
+	{
+		\jobrole{Explored design patterns and refactored 5+ enterprise-scale
+		applications using them.}
+		\jobrole{Designed and developed centralized resource management applications using object-oriented (OOPS) principles.}
+		\jobrole{Certified SAP ERP Development Consultant.}
+	}
+	\job{11/2020 - Present}
+	{Full Time Parent}
+	{Freelance Development}
+	{
+		\subsection{iTradeCloud - (04/2021 - 12/2021)}
+		\jobrole{Migrated a desktop-based custom ERP solution for retail optical shops developed in Microsoft Silverlight to a
+			Progressive web app in Microsoft .NET Core to ensure cross-platform and mobile support.}
+		\jobrole{Plug and play modular design for facilitating the adoption of the solution to any retail shops in addition to optical
+		shops.}
 	
+	%	\subsection{MSc Project - (05/2022 - 09/2022)}
+	%	\jobrole{Conducted experimental research of computer vision techniques and developed a model to classify chest radiographs with an accuracy of 98\% on an open-source dataset.}
+		
+	}
 	%\section{Achievements, honours and awards}
 	%\achievement{My first achievement}
 	%\achievement{My second achievement}
