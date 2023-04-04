@@ -408,7 +408,7 @@
 \setlength{\jobpositionlength}{0.6\linewidth}
 \newcommand{\job}[4]{%
 	\ifstrequal{#3}{}{}{
-	{\Large \bfseries \color{jobtitle} #3}}
+	{\Large \bfseries \color{black} #3}}
 	
 	\vspace{0.1em}
     \begin{minipage}[t]{\jobdateplacelength}% minipage for left column with date/place
@@ -472,7 +472,7 @@
 
 % adapted from AltaCV: https://github.com/liantze/AltaCV
 \newcommand{\tag}[1]{%
-  \tikz[baseline]\node[anchor=base,draw=body!30, fill=blue!50, rounded corners,inner xsep=1ex,inner ysep =1ex,text height=2ex,text depth=.25ex]{\color{white}{#1}};
+  \tikz[baseline]\node[anchor=base,draw=body!30, fill=blue!70, rounded corners,inner xsep=1ex,inner ysep =1ex,text height=2ex,text depth=.25ex]{\color{white}{#1}};
 }
 
 % wheel chart
@@ -535,7 +535,7 @@
 
 % projects
 \newcommand{\projectinfo}[2]{%
-	{\large \color{jobtitle} #1}
+	{\large \bfseries \color{jobtitle} #1}
 	\hspace*{\fill}
 	\makebox[3mm][c]{\footnotesize \color{iconblue}{\faCalendar}}
 	\footnotesize #2
@@ -634,12 +634,12 @@
 % projects
 \newcommand{\jobhighlight}[1]{%
 	\begin{minipage}[t]{3mm}%
-		\makebox[3mm][t]{\color{blue} \faTrophy}
+		\makebox[3mm][t]{\color{jobtitle} \faTrophy}
 	\end{minipage}%
 	\hspace{0.5em}%
-	{\large \color{jobtitle} #1}
+	{\large \bfseries \color{jobtitle} #1}
 	\par
-	\vspace{1em}
+	\vspace{0.7em}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -664,7 +664,7 @@
 		{\normalsize #1\par}
 	\end{minipage}%
 	\par
-	\vspace{1em}
+	\vspace{0.9em}
 }
 % lists
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
