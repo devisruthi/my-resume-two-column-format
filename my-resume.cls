@@ -472,7 +472,7 @@
 
 % adapted from AltaCV: https://github.com/liantze/AltaCV
 \newcommand{\tag}[1]{%
-  \tikz[baseline]\node[anchor=base,draw=body!30, fill=blue!70, rounded corners,inner xsep=1ex,inner ysep =1ex,text height=2ex,text depth=.25ex]{\color{white}{#1}};
+  \tikz[baseline]\node[anchor=base,draw=body!30, fill=blue!70, rounded corners,inner xsep=1ex,inner ysep =1ex,text height=2ex,text depth=.25ex]{\color{white}\bfseries{#1}};
 }
 
 % wheel chart
