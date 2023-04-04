@@ -535,9 +535,9 @@
 
 % projects
 \newcommand{\projectinfo}[2]{%
-	{\large \color{black} #1}
+	{\large \color{jobtitle} #1}
 	\hspace*{\fill}
-	\makebox[3mm][c]{\color{iconblue}{\faCalendar}}
+	\makebox[3mm][c]{\footnotesize \color{iconblue}{\faCalendar}}
 	\footnotesize #2
 	\par
 	\vspace{1em}
