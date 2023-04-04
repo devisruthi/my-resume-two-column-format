@@ -408,7 +408,7 @@
 \setlength{\jobpositionlength}{0.6\linewidth}
 \newcommand{\job}[4]{%
 	\ifstrequal{#3}{}{}{
-	{\large \bfseries \color{jobtitle} #3}}
+	{\Large \bfseries \color{jobtitle} #3}}
 	
 	\vspace{0.1em}
     \begin{minipage}[t]{\jobdateplacelength}% minipage for left column with date/place
@@ -535,16 +535,13 @@
 
 % projects
 \newcommand{\projectinfo}[2]{%
-	{\large \color{jobtitle} #1}
+	{\large \color{black} #1}
 	\hspace*{\fill}
 	\makebox[3mm][c]{\color{iconblue}{\faCalendar}}
 	\footnotesize #2
 	\par
 	\vspace{1em}
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 % publication
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -632,6 +629,19 @@
     \par
     \vspace{0.5em}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% projects
+\newcommand{\jobhighlight}[1]{%
+	\begin{minipage}[t]{3mm}%
+		\makebox[3mm][t]{\color{blue} \faTrophy}
+	\end{minipage}%
+	\hspace{0.5em}%
+	{\large \color{jobtitle} #1}
+	\par
+	\vspace{1em}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\educationrole}[1]{%
 	\begin{minipage}[t]{1mm}%
