@@ -404,7 +404,7 @@
 % set length of date/place column versus position column in fraction of linewidth before linewidth gets redefined in minipages
 \newlength{\jobdateplacelength}
 \newlength{\jobpositionlength}
-\setlength{\jobdateplacelength}{0.4\linewidth}
+\setlength{\jobdateplacelength}{0.7\linewidth}
 \setlength{\jobpositionlength}{0.6\linewidth}
 \newcommand{\job}[4]{%
 	\ifstrequal{#3}{}{}{
@@ -532,6 +532,19 @@
     \end{tikzpicture}\par
     \endgroup
 }
+
+% projects
+\newcommand{\projectinfo}[2]{%
+	{\large \color{jobtitle} #1}
+	\hspace*{\fill}
+	\makebox[3mm][c]{\color{iconblue}{\faCalendar}}
+	\footnotesize #2
+	\par
+	\vspace{1em}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 % publication
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
