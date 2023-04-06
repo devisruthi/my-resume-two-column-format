@@ -275,7 +275,7 @@
             \vfill%
             % print the position text
 			\begin{minipage}[b][\dimexpr \headerheight-14em-\marginbottom]{\linewidth}%
-				{\LARGE\bfseries\color{positionfontcolor}\@position\par}
+				{\LARGE\color{positionfontcolor}\@position\par}
 			\end{minipage}%
 			\vfill%
             \begin{minipage}[b][\dimexpr \headerheight-4em-\marginbottom]{\linewidth}%
@@ -652,7 +652,7 @@
 		{\normalsize #1\par}
 	\end{minipage}%
 	\par
-	\vspace{1em}
+	\vspace{0.7em}
 }
 
 \newcommand{\jobrole}[1]{%
