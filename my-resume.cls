@@ -278,7 +278,7 @@
 				{\LARGE\color{positionfontcolor}\@position\par}
 			\end{minipage}%
 			\vfill%
-            \begin{minipage}[b][\dimexpr \headerheight-4em-\marginbottom]{\linewidth}%
+            \begin{minipage}[b][\dimexpr \headerheight-5em-\marginbottom]{\linewidth}%
                 {\large\bfseries\color{summaryfontcolor}\@tagline\par}
             \end{minipage}%
         % finish the minipages for text and photo if photo is given
@@ -415,7 +415,7 @@
         \footnotesize
         \ifstrequal{#1}{}{}{
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line dates
-            \makebox[3mm][c]{\color{iconblue}{\faCalendar}}
+            \makebox[3mm][c]{\color{accent}{\faCalendar}}
         \end{minipage}%
         \hspace{0.5em}%
         \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em \color{jobdatefontcolor}}% wrap date in minipage to allow multi-line dates
@@ -426,7 +426,7 @@
     }
 	\ifstrequal{#2}{}{}{
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line places
-            \makebox[3mm][c]{\color{iconblue}{\faMapMarker}}
+            \makebox[3mm][c]{\color{accent}{\faMapMarker}}
         \end{minipage}%
         \hspace{0.5em}%
         \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em \color{jobdatefontcolor}}% wrap place in minipage to allow multi-line places
@@ -449,6 +449,13 @@
     \foreach \x in {1,...,5}{%
       \space{\ifnumgreater{\x}{#2}{\color{lightgray}}{\color{accent}}\faCircle}}\par%
   	\vspace{0.5em}
+}
+
+\newcommand{\skillnoscale}[2]{%
+	\textcolor{black}{#1}\hfill
+	\foreach \x in {1,...,5}{%
+		\space{\ifnumgreater{\x}{#2}{\color{white}}{\color{white}}\faCircle}}\par%
+	\vspace{0.5em}
 }
 
 
@@ -535,9 +542,9 @@
 
 % projects
 \newcommand{\projectinfo}[2]{%
-	{\large \bfseries \color{jobtitle} #1}
+	{\normalsize \bfseries \color{jobtitle} #1}
 	\hspace*{\fill}
-	\makebox[3mm][c]{\footnotesize \color{iconblue}{\faCalendar}}
+	\makebox[3mm][c]{\footnotesize \color{accent}{\faCalendar}}
 	\footnotesize #2
 	\par
 	\vspace{1em}
@@ -620,7 +627,7 @@
 
 \newcommand{\achievement}[1]{%
     \begin{minipage}[t]{3mm}%
-        \makebox[3mm][c]{\footnotesize \faTrophy}
+        \makebox[3mm][c]{\footnotesize \color{accent}{\faTrophy}}
     \end{minipage}%
     \hspace{0.5em}%
     \begin{minipage}[t]{\dimexpr \textwidth-0.5em-3mm}%
@@ -634,10 +641,10 @@
 % projects
 \newcommand{\jobhighlight}[1]{%
 	\begin{minipage}[t]{3mm}%
-		\makebox[3mm][t]{\color{jobtitle} \faTrophy}
+		\makebox[3mm][t]{\color{accent} \faTrophy}
 	\end{minipage}%
 	\hspace{0.5em}%
-	{\large \bfseries \color{jobtitle} #1}
+	{\large \bfseries \color{accent} #1}
 	\par
 	\vspace{0.7em}
 }
